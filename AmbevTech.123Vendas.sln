@@ -11,15 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{77517595-2357-4C31-8456-A2F86C39B201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.Application", "src\AmbevTech.123Vendas.Application\AmbevTech.123Vendas.Application.csproj", "{0CEC6A5E-0929-46AF-9C36-E7F4C25109A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbevTech.123Vendas.Application", "src\AmbevTech.123Vendas.Application\AmbevTech.123Vendas.Application.csproj", "{0CEC6A5E-0929-46AF-9C36-E7F4C25109A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.Domain", "src\AmbevTech.123Vendas.Domain\AmbevTech.123Vendas.Domain.csproj", "{CAB2EEB9-40AF-4257-85FF-5C8DB58E7DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbevTech.123Vendas.Domain", "src\AmbevTech.123Vendas.Domain\AmbevTech.123Vendas.Domain.csproj", "{CAB2EEB9-40AF-4257-85FF-5C8DB58E7DB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.Infra", "src\AmbevTech.123Vendas.Infra\AmbevTech.123Vendas.Infra.csproj", "{3590FF6A-41A8-4735-8D50-B52259D4E9EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbevTech.123Vendas.Infra", "src\AmbevTech.123Vendas.Infra\AmbevTech.123Vendas.Infra.csproj", "{3590FF6A-41A8-4735-8D50-B52259D4E9EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.API", "Service\AmbevTech.123Vendas.API\AmbevTech.123Vendas.API.csproj", "{CD826881-7B4C-4511-ADAF-B668AC0720F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbevTech.123Vendas.API", "Service\AmbevTech.123Vendas.API\AmbevTech.123Vendas.API.csproj", "{CD826881-7B4C-4511-ADAF-B668AC0720F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.IoC", "AmbevTech.123Vendas.IoC\AmbevTech.123Vendas.IoC.csproj", "{E4F221A5-BA9E-472D-9F52-62793F5731B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbevTech.123Vendas.IoC", "AmbevTech.123Vendas.IoC\AmbevTech.123Vendas.IoC.csproj", "{E4F221A5-BA9E-472D-9F52-62793F5731B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbevTech.123Vendas.SandBox.Tests", "AmbevTech.123Vendas.SandBox.Tests\AmbevTech.123Vendas.SandBox.Tests.csproj", "{E02C100F-2C21-462F-B9BC-BA619B6680DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{E4F221A5-BA9E-472D-9F52-62793F5731B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4F221A5-BA9E-472D-9F52-62793F5731B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4F221A5-BA9E-472D-9F52-62793F5731B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02C100F-2C21-462F-B9BC-BA619B6680DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02C100F-2C21-462F-B9BC-BA619B6680DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02C100F-2C21-462F-B9BC-BA619B6680DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02C100F-2C21-462F-B9BC-BA619B6680DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{3590FF6A-41A8-4735-8D50-B52259D4E9EB} = {081E25E7-676F-4649-9CF5-32EA58285A14}
 		{CD826881-7B4C-4511-ADAF-B668AC0720F8} = {0DCBB1A4-0022-444D-A8C9-344F5AB5AFF0}
 		{E4F221A5-BA9E-472D-9F52-62793F5731B0} = {081E25E7-676F-4649-9CF5-32EA58285A14}
+		{E02C100F-2C21-462F-B9BC-BA619B6680DA} = {77517595-2357-4C31-8456-A2F86C39B201}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {133B257A-99C3-483B-A2D9-B2AC244DBA4B}
