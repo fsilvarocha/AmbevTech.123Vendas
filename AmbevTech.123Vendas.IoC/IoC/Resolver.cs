@@ -4,6 +4,7 @@ using AmbevTech._123Vendas.Domain.Interfaces;
 using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.Infra.DataContext;
 using AmbevTech._123Vendas.Infra.EventBus;
+using AmbevTech._123Vendas.Infra.GraphQL;
 using AmbevTech._123Vendas.Infra.Publisher;
 using AmbevTech._123Vendas.Infra.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,11 +29,12 @@ public class Resolver : IResolver
     {
         ConfigurarDI(services, configuration);
         ConfigurarIdentity(services, configuration);
+        ConfigurarSwagger(services);
         ConfigurarServicos(services);
         ConfigurarRepositorios(services);
         ConfigurarAutoMapperConfiguration(services);
         ConfigurarGraphQL(services);
-        ConfigurarSwagger(services);
+
 
     }
 
@@ -65,7 +67,7 @@ public class Resolver : IResolver
         services.AddSwaggerGen(c =>
         {
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
             c.IncludeXmlComments(xmlPath);
 
             c.SwaggerDoc("v1", new OpenApiInfo
@@ -88,6 +90,10 @@ public class Resolver : IResolver
 
     private void ConfigurarGraphQL(IServiceCollection services)
     {
+        services.AddGraphQLServer().AddQueryType<Query>()
+           .AddProjections()
+           .AddFiltering()
+           .AddSorting();
     }
 
     private void ConfigurarAutoMapperConfiguration(IServiceCollection services)

@@ -1,10 +1,8 @@
 using AmbevTech._123Vendas.API.Middleware;
 using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.IoC.IoC;
-using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
-using System.Reflection;
 
 Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Warning()
@@ -46,6 +44,7 @@ try
 
     app.MapControllers();
 
+    app.MapGraphQL("/graphql");
 
     app.Run();
 }
