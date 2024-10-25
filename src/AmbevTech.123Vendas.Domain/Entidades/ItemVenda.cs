@@ -8,5 +8,6 @@ public class ItemVenda
     public decimal ValorUnitario { get; set; }
     public decimal Desconto { get; set; }
     public decimal ValorTotal => Quantidade * ValorUnitario - Desconto;
+    public bool Cancelado { get; set; }
 
 }
