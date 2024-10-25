@@ -83,4 +83,9 @@ public class VendaService : IVendaService
 
         return venda;
     }
+
+    public IQueryable<Venda> GetVendaListAsync() => _vendaRepository.GetAll();
+
+    public async Task<Venda> GetVendaByIdAsync(int id) => await _vendaRepository.GetByIdAsync(id);
+
 }

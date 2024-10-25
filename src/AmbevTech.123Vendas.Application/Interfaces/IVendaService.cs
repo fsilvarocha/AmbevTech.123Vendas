@@ -8,4 +8,6 @@ public interface IVendaService
     Task<Venda> UpdateVendaAsync(Venda venda);
     Task CancelVendaAsync(int numeroVenda);
     Task CancelItemAsync(int numeroVenda, int itemId);
+    IQueryable<Venda> GetVendaListAsync();
+    Task<Venda> GetVendaByIdAsync(int id);
 }

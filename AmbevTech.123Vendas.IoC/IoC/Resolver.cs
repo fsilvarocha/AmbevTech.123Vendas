@@ -4,10 +4,12 @@ using AmbevTech._123Vendas.Domain.Interfaces;
 using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.Infra.DataContext;
 using AmbevTech._123Vendas.Infra.EventBus;
+using AmbevTech._123Vendas.Infra.Publisher;
 using AmbevTech._123Vendas.Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Tingle.EventBus;
 using static AmbevTech._123Vendas.Domain.Helpers.Configurations;
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 
@@ -37,6 +39,7 @@ public class Resolver : IResolver
     {
         services.AddScoped<IVendaService, VendaService>();
         services.AddScoped<IEventBus, EventBusRabbitMQ>();
+        services.AddScoped<IEventPublisher, RabbitMqEventPublisher>();
     }
 
     private void ConfigurarRepositorios(IServiceCollection services)
