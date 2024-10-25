@@ -12,7 +12,7 @@ public class Dependencias
             lock (_lock)
             {
                 if (_resolver == null)
-                    throw new Exception("Nenhuma instância de \"IResolvedor\" foi configurada no domínio.");
+                    throw new System.Exception("Nenhuma instância de \"IResolvedor\" foi configurada no domínio.");
 
                 return _resolver;
             }
