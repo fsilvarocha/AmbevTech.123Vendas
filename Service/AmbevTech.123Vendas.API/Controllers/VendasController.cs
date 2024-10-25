@@ -1,10 +1,12 @@
 ﻿using AmbevTech._123Vendas.Application.Interfaces;
 using AmbevTech._123Vendas.Domain.Entidades;
 using AmbevTech._123Vendas.Domain.Exception;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AmbevTech._123Vendas.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class VendasController : ControllerBase

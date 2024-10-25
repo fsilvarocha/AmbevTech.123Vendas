@@ -6,9 +6,15 @@ using AmbevTech._123Vendas.Infra.DataContext;
 using AmbevTech._123Vendas.Infra.EventBus;
 using AmbevTech._123Vendas.Infra.Publisher;
 using AmbevTech._123Vendas.Infra.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.Text;
 using Tingle.EventBus;
 using static AmbevTech._123Vendas.Domain.Helpers.Configurations;
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
@@ -21,10 +27,63 @@ public class Resolver : IResolver
     public Resolver(IServiceCollection services, IConfiguration configuration)
     {
         ConfigurarDI(services, configuration);
+        ConfigurarIdentity(services, configuration);
         ConfigurarServicos(services);
         ConfigurarRepositorios(services);
         ConfigurarAutoMapperConfiguration(services);
         ConfigurarGraphQL(services);
+        ConfigurarSwagger(services);
+
+    }
+
+    private void ConfigurarIdentity(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<Context>()
+            .AddDefaultTokenProviders();
+
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidIssuer = configuration["Jwt:Issuer"],
+                ValidAudience = configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
+            };
+        });
+    }
+
+    private void ConfigurarSwagger(IServiceCollection services)
+    {
+        services.AddSwaggerGen(c =>
+        {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            c.IncludeXmlComments(xmlPath);
+
+            c.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "AmbevTech.123Vendas",
+                Version = "v1",
+                Description = "Projeto para desafio técnico",
+                Contact = new OpenApiContact
+                {
+                    Name = "Fabricio Silva da Rocha",
+                    Email = "fsilvarocha@gmail.com",
+                    Url = new Uri("https://github.com/fsilvarocha"),
+                    Extensions = {
+                    { "Telefone", new Microsoft.OpenApi.Any.OpenApiString("+55 (31) 984469354") }
+                }
+                }
+            });
+        });
     }
 
     private void ConfigurarGraphQL(IServiceCollection services)

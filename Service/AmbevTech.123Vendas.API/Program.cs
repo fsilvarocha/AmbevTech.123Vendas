@@ -23,31 +23,12 @@ try
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen(c =>
-    {
-        var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-        var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
-        c.IncludeXmlComments(xmlPath);
-        c.SwaggerDoc("v1", new OpenApiInfo
-        {
-            Title = "AmbevTeck.123Vendas",
-            Version = "v1",
-            Description = "Projeto para desafio técnico",
-            Contact = new OpenApiContact
-            {
-                Name = "Fabricio Silva da Rocha",
-                Email = "fsilvarocha@gmail.com",
-                Url = new Uri("https://github.com/fsilvarocha"), 
-                Extensions = {
-                {"Telefone", new Microsoft.OpenApi.Any.OpenApiString("+55 (31) 984469354")} 
-            }
-            }
-        });
-    });
 
     Dependencias.Resolver = new Resolver(builder.Services, builder.Configuration);
 
     builder.Services.AddExceptionHandler<ErrorHandlingMiddleware>();
+
+    builder.Services.AddAuthorization();
 
     var app = builder.Build();
 
@@ -60,6 +41,7 @@ try
 
     app.UseHttpsRedirection();
 
+    app.UseAuthentication();
     app.UseAuthorization();
 
     app.MapControllers();
