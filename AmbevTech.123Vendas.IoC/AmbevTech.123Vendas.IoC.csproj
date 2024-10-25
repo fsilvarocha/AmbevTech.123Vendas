@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>AmbevTech._123Vendas.IoC</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\AmbevTech.123Vendas.Domain\AmbevTech.123Vendas.Domain.csproj" />
+    <ProjectReference Include="..\src\AmbevTech.123Vendas.Infra\AmbevTech.123Vendas.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

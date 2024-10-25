@@ -1,12 +1,14 @@
-﻿using AmbevTech._123Vendas.Domain.IoC;
+﻿using AmbevTech._123Vendas.Domain.Interfaces;
+using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.Infra.DataContext;
+using AmbevTech._123Vendas.Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using static AmbevTech._123Vendas.Domain.Helpers.Configurations;
 using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
 
-namespace AmbevTech._123Vendas.Infra.IoC;
+namespace AmbevTech._123Vendas.IoC.IoC;
 
 public class Resolver : IResolver
 {
@@ -34,6 +36,7 @@ public class Resolver : IResolver
 
     private void ConfigurarRepositorios(IServiceCollection services)
     {
+        services.AddScoped<IVendaRepository, VendaRepository>();
     }
 
     public Resolver()
@@ -70,3 +73,4 @@ public class Resolver : IResolver
         throw new NotImplementedException();
     }
 }
+

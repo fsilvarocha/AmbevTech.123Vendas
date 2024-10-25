@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AmbevTech._123Vendas.Domain.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace AmbevTech._123Vendas.Infra.DataContext;
@@ -27,5 +28,8 @@ public class Context : DbContext
         base.OnModelCreating(modelBuilder);
 
     }
+
+    public DbSet<Venda> Vendas { get; set; }
+    public DbSet<ItemVenda> ItensVenda { get; set; }
 
 }
