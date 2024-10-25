@@ -1,6 +1,9 @@
-﻿using AmbevTech._123Vendas.Domain.Interfaces;
+﻿using AmbevTech._123Vendas.Application.Interfaces;
+using AmbevTech._123Vendas.Application.Services;
+using AmbevTech._123Vendas.Domain.Interfaces;
 using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.Infra.DataContext;
+using AmbevTech._123Vendas.Infra.EventBus;
 using AmbevTech._123Vendas.Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +35,8 @@ public class Resolver : IResolver
 
     private void ConfigurarServicos(IServiceCollection services)
     {
+        services.AddScoped<IVendaService, VendaService>();
+        services.AddScoped<IEventBus, EventBusRabbitMQ>();
     }
 
     private void ConfigurarRepositorios(IServiceCollection services)

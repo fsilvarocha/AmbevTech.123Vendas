@@ -1,3 +1,4 @@
+using AmbevTech._123Vendas.API.Middleware;
 using AmbevTech._123Vendas.Domain.IoC;
 using AmbevTech._123Vendas.IoC.IoC;
 using Serilog;
@@ -29,6 +30,8 @@ try
     });
 
     Dependencias.Resolver = new Resolver(builder.Services, builder.Configuration);
+
+    builder.Services.AddExceptionHandler<ErrorHandlingMiddleware>();
 
     var app = builder.Build();
 

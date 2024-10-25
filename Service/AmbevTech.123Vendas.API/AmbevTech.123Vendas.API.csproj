@@ -21,12 +21,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Controllers\" />
+	  <ProjectReference Include="..\..\AmbevTech.123Vendas.IoC\AmbevTech.123Vendas.IoC.csproj" />
+	  <ProjectReference Include="..\..\src\AmbevTech.123Vendas.Domain\AmbevTech.123Vendas.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\AmbevTech.123Vendas.IoC\AmbevTech.123Vendas.IoC.csproj" />
-	  <ProjectReference Include="..\..\src\AmbevTech.123Vendas.Domain\AmbevTech.123Vendas.Domain.csproj" />
+	  <Folder Include="Controllers\" />
 	</ItemGroup>
 
 </Project>
