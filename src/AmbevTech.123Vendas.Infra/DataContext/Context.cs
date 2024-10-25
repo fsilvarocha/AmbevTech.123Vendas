@@ -1,10 +1,11 @@
 ﻿using AmbevTech._123Vendas.Domain.Entidades;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace AmbevTech._123Vendas.Infra.DataContext;
 
-public class Context : DbContext
+public class Context : IdentityDbContext
 {
     public Context(DbContextOptions options) : base(options) { }
 
