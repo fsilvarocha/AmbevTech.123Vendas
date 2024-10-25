@@ -1,5 +1,5 @@
 using AmbevTech._123Vendas.Domain.IoC;
-using AmbevTech._123Vendas.Infra.IoC;
+using AmbevTech._123Vendas.IoC.IoC;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;

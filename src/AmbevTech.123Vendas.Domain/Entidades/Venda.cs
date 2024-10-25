@@ -1,9 +1,17 @@
 ﻿namespace AmbevTech._123Vendas.Domain.Entidades;
 
-public class Venda : BaseEntities
+public class Venda
 {
-    public DateTime DataVenda { get; set; } = new DateTime();
-    public decimal Valor { get; set; }
-    public decimal ValorDesconto { get; set; } = 0;
-    public bool ItemCancelado { get; set; } = false;
+    public Venda()
+    {
+        Itens = new();
+    }
+
+    public int NumeroVenda { get; set; }
+    public DateTime DataVenda { get; set; } = DateTime.Now;
+    public string Cliente { get; set; }
+    public decimal ValorTotal { get; set; }
+    public string Filial { get; set; }
+    public List<ItemVenda> Itens { get; set; }
+    public bool Cancelado { get; set; } = false;
 }
