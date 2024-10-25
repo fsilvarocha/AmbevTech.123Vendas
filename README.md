@@ -10,6 +10,7 @@
 - **Serilog**
 - **Microsoft Identity**
 - **RabbitMQ**
+- **GraphQL**
 
 ## Descrição do Projeto
 
@@ -78,6 +79,15 @@ A camada **Tests** contém todos os testes automatizados do seu sistema, incluin
 - Alterar a connectionString para sua base de dados do sqlserver
 - Alterar a connectinString para seu servidor RabbitMQ
 - Executar o Migration
+
+## Como Executar o GraphQL
+- https://localhost:sua_porta/graphql/
+
+  Neste contexto, está exposto para consultas o objeto vendas, onde se pode fazer qualquer tipo de consulta.
+  - Abaixo um exemplo de como fazer uma consulta
+
+![image](https://github.com/user-attachments/assets/ff10bda4-bc95-4325-b26b-1dc001670594)
+
   
 1. Clone o repositório:
    ```bash
