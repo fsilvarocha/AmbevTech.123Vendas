@@ -12,10 +12,10 @@ public class VendasControllerTests
     private readonly Mock<IVendaService> _mockVendaService;
     private readonly VendasController _controller;
 
-    public VendasControllerTests(Mock<IVendaService> mockVendaService, VendasController controller)
+    public VendasControllerTests()
     {
-        _mockVendaService = mockVendaService;
-        _controller = controller;
+        _mockVendaService = new Mock<IVendaService>();
+        _controller = new VendasController(_mockVendaService.Object);
     }
 
 
