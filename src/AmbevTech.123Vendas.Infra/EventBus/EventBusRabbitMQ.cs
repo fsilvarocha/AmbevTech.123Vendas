@@ -16,6 +16,7 @@ public class EventBusRabbitMQ : IEventBus
     public async Task PublishAsync(DomainEvent @event)
     {
         var eventContext = _eventPublisher.CreateEventContext(@event);
-        await _eventPublisher.PublishAsync(eventContext);
+        if (eventContext != null)
+            await _eventPublisher.PublishAsync(eventContext);
     }
 }

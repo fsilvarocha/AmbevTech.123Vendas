@@ -1,4 +1,6 @@
-﻿namespace AmbevTech._123Vendas.Domain.Entidades;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AmbevTech._123Vendas.Domain.Entidades;
 
 public class Venda
 {
@@ -7,6 +9,7 @@ public class Venda
         Itens = new();
     }
 
+    [Key]
     public int NumeroVenda { get; set; }
     public DateTime DataVenda { get; set; } = DateTime.Now;
     public string Cliente { get; set; }

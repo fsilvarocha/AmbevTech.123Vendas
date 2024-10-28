@@ -1,7 +1,10 @@
-﻿namespace AmbevTech._123Vendas.Domain.Entidades;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AmbevTech._123Vendas.Domain.Entidades;
 
 public class ItemVenda
 {
+    [Key]
     public int Id { get; set; }
     public string Produto { get; set; }
     public int Quantidade { get; set; }

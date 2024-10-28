@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AmbevTech._123Vendas.API.Controllers;
 
-[Authorize]
+[AllowAnonymous]
 [ApiController]
 [Route("api/[controller]")]
 public class VendasController : ControllerBase
