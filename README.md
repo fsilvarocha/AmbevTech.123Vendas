@@ -86,7 +86,8 @@ A camada **Tests** contém todos os testes automatizados do seu sistema, incluin
   Neste contexto, está exposto para consultas o objeto vendas, onde se pode fazer qualquer tipo de consulta.
   - Abaixo um exemplo de como fazer uma consulta
 
-![image](https://github.com/user-attachments/assets/ff10bda4-bc95-4325-b26b-1dc001670594)
+![image](https://github.com/user-attachments/assets/d2119cb1-72ad-4554-8168-9156947d6e96)
+
 
   
 1. Clone o repositório:
